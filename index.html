@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dossiê Urucuia: A Saga de Pou</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;900&family=Raleway:wght@300;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --p: #6b21a8;
+            --r: #7f1d1d;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #ffffff;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #lock-screen {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .input-dark {
+            background: #080808;
+            border: 2px solid #111;
+            color: #fff;
+            padding: 25px;
+            width: 100%;
+            text-align: center;
+            border-radius: 12px;
+            outline: none;
+            font-size: 28px;
+            letter-spacing: 10px;
+            transition: 0.3s;
+        }
+
+        .input-dark:focus { border-color: var(--r); box-shadow: 0 0 20px rgba(127, 29, 29, 0.4); }
+
+        .btn-access {
+            background: #111;
+            color: #333;
+            width: 100%;
+            padding: 22px;
+            margin-top: 15px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .btn-access:active { background: #fff; color: #000; }
+
+        .skill-box {
+            background: #050505;
+            border-left: 6px solid var(--p);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s all cubic-bezier(0.17, 0.55, 0.55, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .danger-pulse {
+            animation: pulse-red 1s infinite;
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { color: #f87171; text-shadow: 0 0 5px #7f1d1d; }
+            50% { color: #ffffff; text-shadow: 0 0 30px #ff0000; }
+        }
+
+        .insta-link {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            display: block;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bloqueio Total -->
+    <div id="lock-screen">
+        <div class="w-full max-w-sm text-center">
+            <h2 class="text-zinc-900 font-black tracking-[1.5em] mb-12 text-[10px] italic">ACESSO RESTRITO • URUCUIA</h2>
+            <input type="password" id="p-word" class="input-dark" placeholder="••••">
+            <button onclick="unlock()" class="btn-access">DESBLOQUEAR</button>
+            <p id="err" class="text-[9px] mt-6 text-red-900 opacity-0 font-black uppercase tracking-widest">Senha Incorreta</p>
+        </div>
+    </div>
+
+    <!-- Conteúdo do Exposed -->
+    <main id="content" class="hidden opacity-0 transition-opacity duration-1000">
+        
+        <header class="h-[90vh] flex flex-col items-center justify-center p-8 text-center relative">
+            <div class="absolute inset-0 bg-gradient-to-b from-purple-950/20 to-black pointer-events-none"></div>
+            <h1 class="text-9xl md:text-[18rem] font-black italic tracking-tighter leading-none z-10">POU</h1>
+            <p class="text-red-700 font-black tracking-[0.8em] text-[10px] md:text-xs mt-6 z-10 uppercase border-y border-red-900/40 py-3">
+                O Exposed de Arinos • Dossiê 034
+            </p>
+        </header>
+
+        <!-- A Peça -->
+        <section class="p-6 max-w-5xl mx-auto reveal mb-20">
+            <div class="border-2 border-purple-900 p-2 mb-12 bg-zinc-950">
+                <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" class="w-full">
+                    <rect width="400" height="600" fill="#000"/>
+                    <!-- Tranças -->
+                    <g stroke="#111" stroke-width="10">
+                        <path d="M50,100 Q20,300 40,580" fill="none"/>
+                        <path d="M100,80 Q70,300 85,590" fill="none"/>
+                        <path d="M140,60 Q110,300 120,600" fill="none"/>
+                        <path d="M260,60 Q290,300 280,600" fill="none"/>
+                        <path d="M310,80 Q330,300 315,590" fill="none"/>
+                        <path d="M350,100 Q380,300 360,580" fill="none"/>
+                    </g>
+                    <!-- Corpo e Lábios -->
+                    <path d="M40,600 L360,600 L410,400 Q440,200 300,120 L100,120 Q-40,200 -10,400 Z" fill="#2e1052"/>
+                    <ellipse cx="200" cy="110" rx="95" ry="105" fill="#3b2316"/>
+                    <path d="M130,165 Q200,225 270,165 Q200,190 130,165" fill="#7f1d1d" stroke="#000" stroke-width="5"/>
+                    <path d="M130,165 Q200,135 270,165" fill="#7f1d1d" stroke="#000" stroke-width="5"/>
+                    
+                    <!-- Introduções -->
+                    <rect x="160" y="280" width="80" height="320" rx="15" fill="#1e3a8a" opacity="0.9"/>
+                    <path d="M160,280 L240,280 L220,240 L180,240 Z" fill="#1e3a8a"/>
+                    <text x="200" y="440" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">PET 2L</text>
+                    <rect x="80" y="460" width="60" height="140" fill="#991b1b"/>
+                    <rect x="260" y="460" width="60" height="140" fill="#991b1b"/>
+                </svg>
+            </div>
+            
+            <div class="text-center md:text-left">
+                <h2 class="text-5xl font-black italic mb-8 uppercase tracking-tighter">A Lenda de Arinos</h2>
+                <p class="text-zinc-500 text-xl leading-relaxed mb-12">
+                    Gabriela, vulgo <strong>Pou</strong>. Uma presença obesa com tranças de guerra e um bocão inesquecível. No IF de Arinos, ela era conhecida não pelas notas, mas pela capacidade industrial de introduzir objetos no rabo. Do material escolar às garrafas PET, nada escapava do portal dela.
+                </p>
+                <a href="https://www.instagram.com/eugabyy340?igsh=OXh2aGxvY3Nrendv" target="_blank" class="insta-link">INSTAGRAM DA POU</a>
+            </div>
+        </section>
+
+        <!-- Skill Tree -->
+        <section class="p-6 max-w-5xl mx-auto reveal mb-24">
+            <h2 class="text-zinc-800 font-black text-2xl mb-12 tracking-[0.3em] text-center uppercase italic">Skills da Lenda</h2>
+            
+            <div class="skill-box border-purple-900">
+                <h3 class="text-white font-black text-3xl italic uppercase mb-2">Boquete</h3>
+                <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest">A sucção de Urucuia. O bocão da Pou domina o vácuo: do seco ao tornado profundo que suga até a alma.</p>
+            </div>
+
+            <div class="skill-box border-red-900">
+                <h3 class="text-white font-black text-3xl italic uppercase mb-2">Sexo de Posição Gorda</h3>
+                <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest">A prensa hidráulica humana. Foi com essa força que ela <strong>QUEBROU O PAU</strong> do namorado cego. Ele só ouviu o estalo.</p>
+            </div>
+
+            <div class="skill-box border-green-900">
+                <h3 class="text-white font-black text-3xl italic uppercase mb-2">Introdução de Coisas</h3>
+                <p class="text-zinc-500 text-xs font-bold uppercase tracking-widest">Capacidade infinita. Garrafas PET de 2L cheias, estojos do IF, comandos de TV e ténis. Se entrou, é porque ela quis.</p>
+            </div>
+        </section>
+
+        <!-- O Trauma -->
+        <section class="py-40 px-6 bg-red-950/20 text-center reveal mb-20 border-y border-red-900/10">
+            <h2 class="text-6xl md:text-8xl font-black mb-10 danger-pulse italic uppercase tracking-tighter">O PAU PARTIU</h2>
+            <p class="text-2xl md:text-3xl text-zinc-300 font-black max-w-2xl mx-auto leading-tight italic">
+                "Ele não via nada, mas o som do pau a estalar na prensa da Pou foi a última coisa que ele quis ouvir."
+            </p>
+        </section>
+
+        <!-- Mafalda e Goats -->
+        <section class="p-6 max-w-5xl mx-auto reveal grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
+            <div class="p-10 bg-orange-950/5 border border-orange-900/30 rounded-2xl">
+                <h3 class="text-orange-800 font-black text-2xl italic uppercase mb-4">Mafalda: A Chata</h3>
+                <p class="text-zinc-600 text-sm font-bold uppercase leading-relaxed">
+                    A "pick me" da drogaria. Vive a mendigar atenção e a tentar entrar na mídia. É a sombra chata da Pou que ninguém suporta ter por perto.
+                </p>
+            </div>
+            <div class="p-10 bg-zinc-900/20 border border-zinc-800 rounded-2xl">
+                <h3 class="text-zinc-400 font-black text-2xl italic uppercase mb-4">Os Goats (4+3)</h3>
+                <p class="text-zinc-600 text-sm font-bold uppercase leading-relaxed">
+                    O bonde supremo. Simpáticos, humildes e reis da resenha. Eles têm o respeito de todos, mas mantêm a distância de segurança da Pou e da Mafalda.
+                </p>
+            </div>
+        </section>
+
+        <footer class="py-32 text-center opacity-5">
+            <p class="text-[12px] tracking-[2.5em] font-black italic">URU•CUI•A</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function unlock() {
+            const p = document.getElementById('p-word').value.toLowerCase().trim();
+            // Senha: melhores amigos
+            if (p === 'melhores amigos') {
+                document.getElementById('lock-screen').style.display = 'none';
+                const c = document.getElementById('content');
+                c.classList.remove('hidden');
+                setTimeout(() => c.classList.add('opacity-100'), 50);
+            } else {
+                const e = document.getElementById('err');
+                e.style.opacity = '1';
+                setTimeout(() => e.style.opacity = '0', 2000);
+                document.getElementById('p-word').value = '';
+            }
+        }
+
+        const obs = new IntersectionObserver((es) => {
+            es.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+        document.getElementById('p-word').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') unlock();
+        });
+    </script>
+</body>
+</html>
